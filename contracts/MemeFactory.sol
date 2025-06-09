@@ -20,7 +20,6 @@ contract MemeFactory is
         TRADING // 3
     }
 
-    uint256 public constant MAX_SUPPLY = 10 ** 9 * 1 ether;
     uint256 public constant FEE_DENOMINATOR = 10000;
 
     // bonding curve parameters
@@ -33,22 +32,50 @@ contract MemeFactory is
     mapping(address => uint256) public collateral; // total collateral for each token
     uint256 public feePercent; // bp
     uint256 public fee;
-    uint256 public createFee = 1000 ether;
+    uint256 public createFee;
 
     /// events
-    event TokenCreated(address indexed token, uint256 timestamp);
+    event TokenCreated(
+        address indexed token,
+        address indexed creator,
+        uint256 timestamp,
+        string name,
+        string symbol,
+        string description,
+        string icon,
+        string website,
+        string twitter,
+        string telegram,
+        string discord,
+        string github
+    );
+
+    /// @notice when user buy token
+    /// @param token token address
+    /// @param timestamp timestamp
+    /// @param baseAmount meme token amount
+    /// @param quoteAmount eth quote amount
+    /// @param feeAmount fee amount
     event TokenBuy(
         address indexed token,
         uint256 timestamp,
-        uint256 fundAmount,
-        uint256 returnTokenAmount,
+        uint256 baseAmount,
+        uint256 quoteAmount,
         uint256 feeAmount
     );
+
+    /// @notice when user sell token
+    /// @param token token address
+    /// @param timestamp timestamp
+    /// @param baseAmount meme token amount
+    /// @param quoteAmount eth quote amount
+    /// @param feeAmount fee amount
     event TokenSell(
         address indexed token,
         uint256 timestamp,
-        uint256 tokenAmount,
-        uint256 returnFundAmount
+        uint256 baseAmount,
+        uint256 quoteAmount,
+        uint256 feeAmount
     );
 
     // uups initializer
@@ -65,6 +92,7 @@ contract MemeFactory is
         x = _x;
         y = _y;
         K = (x * y) / 1 ether;
+        createFee = 1000 ether;
     }
 
     function _authorizeUpgrade(
@@ -75,23 +103,48 @@ contract MemeFactory is
 
     function createMeme(
         string memory name,
-        string memory symbol
+        string memory symbol,
+        string memory description,
+        string memory icon,
+        string memory website,
+        string memory twitter,
+        string memory telegram,
+        string memory discord,
+        string memory github
     ) external payable nonReentrant returns (address) {
         require(msg.value >= createFee, "Insufficient fee");
+        require(
+            bytes(name).length > 0 &&
+                bytes(symbol).length > 0 &&
+                bytes(icon).length > 0,
+            "name, symbol and icon are required"
+        );
         fee += createFee;
 
         MemeToken token = new MemeToken(name, symbol);
         address tokenAddress = address(token);
         tokens[tokenAddress] = TokenState.FUNDING;
-        emit TokenCreated(tokenAddress, block.timestamp);
+        emit TokenCreated(
+            tokenAddress,
+            msg.sender,
+            block.timestamp,
+            name,
+            symbol,
+            description,
+            icon,
+            website,
+            twitter,
+            telegram,
+            discord,
+            github
+        );
         return tokenAddress;
     }
 
     // Handle token purchase
     function buy(address tokenAddress) external payable nonReentrant {
         require(
-            tokens[tokenAddress] == TokenState.FUNDING ||
-                tokens[tokenAddress] == TokenState.WAIT_TRADING,
+            tokens[tokenAddress] == TokenState.FUNDING,
             "Token is not funding"
         );
         require(msg.value > 0, "Zero value not allowed");
@@ -102,7 +155,7 @@ contract MemeFactory is
         );
 
         // calculate fee
-        uint256 valueToBuy = msg.value;
+        uint256 valueToBuy = msg.value; //10000
         uint256 valueToReturn;
         uint256 tokenCollateral = collateral[tokenAddress];
 
@@ -139,7 +192,7 @@ contract MemeFactory is
             // token.mint(address(this), INITIAL_SUPPLY);
             tokens[tokenAddress] = TokenState.WAIT_TRADING;
         }
-
+        collateral[tokenAddress] = tokenCollateral;
         // return left
         if (valueToReturn > 0) {
             (bool success, ) = msg.sender.call{value: msg.value - valueToBuy}(
@@ -150,16 +203,15 @@ contract MemeFactory is
         emit TokenBuy(
             tokenAddress,
             block.timestamp,
-            msg.value,
             valueToReturn,
+            msg.value,
             _fee
         );
     }
 
     function sell(address tokenAddress, uint256 amount) external nonReentrant {
         require(
-            tokens[tokenAddress] == TokenState.FUNDING ||
-                tokens[tokenAddress] == TokenState.WAIT_TRADING,
+            tokens[tokenAddress] == TokenState.FUNDING,
             "Token is not funding"
         );
         require(amount > 0, "Amount should be greater than zero");
@@ -174,7 +226,13 @@ contract MemeFactory is
         // send ether
         (bool success, ) = msg.sender.call{value: receivedETH}(new bytes(0));
         require(success, "ETH send failed");
-        emit TokenSell(tokenAddress, block.timestamp, amount, receivedETH);
+        emit TokenSell(
+            tokenAddress,
+            block.timestamp,
+            amount,
+            receivedETH,
+            _fee
+        );
     }
 
     function calculateFee(

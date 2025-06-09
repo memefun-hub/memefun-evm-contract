@@ -134,13 +134,13 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "fundAmount",
+        "name": "baseAmount",
         "type": "uint256"
       },
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "returnTokenAmount",
+        "name": "quoteAmount",
         "type": "uint256"
       },
       {
@@ -163,10 +163,70 @@
         "type": "address"
       },
       {
+        "indexed": true,
+        "internalType": "address",
+        "name": "creator",
+        "type": "address"
+      },
+      {
         "indexed": false,
         "internalType": "uint256",
         "name": "timestamp",
         "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "symbol",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "icon",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "website",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "twitter",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "telegram",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "discord",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "github",
+        "type": "string"
       }
     ],
     "name": "TokenCreated",
@@ -190,13 +250,19 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "tokenAmount",
+        "name": "baseAmount",
         "type": "uint256"
       },
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "returnFundAmount",
+        "name": "quoteAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "feeAmount",
         "type": "uint256"
       }
     ],
@@ -232,19 +298,6 @@
   {
     "inputs": [],
     "name": "K",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "MAX_SUPPLY",
     "outputs": [
       {
         "internalType": "uint256",
@@ -398,6 +451,41 @@
       {
         "internalType": "string",
         "name": "symbol",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "icon",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "website",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "twitter",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "telegram",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "discord",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "github",
         "type": "string"
       }
     ],
