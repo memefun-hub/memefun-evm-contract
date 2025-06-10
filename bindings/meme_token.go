@@ -29,113 +29,113 @@ var (
 	_ = abi.ConvertType
 )
 
-// MemeMetaData contains all meta data concerning the Meme contract.
-var MemeMetaData = &bind.MetaData{
+// MemeTokenMetaData contains all meta data concerning the MemeToken contract.
+var MemeTokenMetaData = &bind.MetaData{
 	ABI: "[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"allowance\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"needed\",\"type\":\"uint256\"}],\"name\":\"ERC20InsufficientAllowance\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"needed\",\"type\":\"uint256\"}],\"name\":\"ERC20InsufficientBalance\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"approver\",\"type\":\"address\"}],\"name\":\"ERC20InvalidApprover\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"}],\"name\":\"ERC20InvalidReceiver\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"}],\"name\":\"ERC20InvalidSender\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"ERC20InvalidSpender\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"}],\"name\":\"allowance\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"spender\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
-// MemeABI is the input ABI used to generate the binding from.
-// Deprecated: Use MemeMetaData.ABI instead.
-var MemeABI = MemeMetaData.ABI
+// MemeTokenABI is the input ABI used to generate the binding from.
+// Deprecated: Use MemeTokenMetaData.ABI instead.
+var MemeTokenABI = MemeTokenMetaData.ABI
 
-// Meme is an auto generated Go binding around an Ethereum contract.
-type Meme struct {
-	MemeCaller     // Read-only binding to the contract
-	MemeTransactor // Write-only binding to the contract
-	MemeFilterer   // Log filterer for contract events
+// MemeToken is an auto generated Go binding around an Ethereum contract.
+type MemeToken struct {
+	MemeTokenCaller     // Read-only binding to the contract
+	MemeTokenTransactor // Write-only binding to the contract
+	MemeTokenFilterer   // Log filterer for contract events
 }
 
-// MemeCaller is an auto generated read-only Go binding around an Ethereum contract.
-type MemeCaller struct {
+// MemeTokenCaller is an auto generated read-only Go binding around an Ethereum contract.
+type MemeTokenCaller struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MemeTransactor is an auto generated write-only Go binding around an Ethereum contract.
-type MemeTransactor struct {
+// MemeTokenTransactor is an auto generated write-only Go binding around an Ethereum contract.
+type MemeTokenTransactor struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MemeFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
-type MemeFilterer struct {
+// MemeTokenFilterer is an auto generated log filtering Go binding around an Ethereum contract events.
+type MemeTokenFilterer struct {
 	contract *bind.BoundContract // Generic contract wrapper for the low level calls
 }
 
-// MemeSession is an auto generated Go binding around an Ethereum contract,
+// MemeTokenSession is an auto generated Go binding around an Ethereum contract,
 // with pre-set call and transact options.
-type MemeSession struct {
-	Contract     *Meme             // Generic contract binding to set the session for
+type MemeTokenSession struct {
+	Contract     *MemeToken        // Generic contract binding to set the session for
 	CallOpts     bind.CallOpts     // Call options to use throughout this session
 	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
 }
 
-// MemeCallerSession is an auto generated read-only Go binding around an Ethereum contract,
+// MemeTokenCallerSession is an auto generated read-only Go binding around an Ethereum contract,
 // with pre-set call options.
-type MemeCallerSession struct {
-	Contract *MemeCaller   // Generic contract caller binding to set the session for
-	CallOpts bind.CallOpts // Call options to use throughout this session
+type MemeTokenCallerSession struct {
+	Contract *MemeTokenCaller // Generic contract caller binding to set the session for
+	CallOpts bind.CallOpts    // Call options to use throughout this session
 }
 
-// MemeTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
+// MemeTokenTransactorSession is an auto generated write-only Go binding around an Ethereum contract,
 // with pre-set transact options.
-type MemeTransactorSession struct {
-	Contract     *MemeTransactor   // Generic contract transactor binding to set the session for
-	TransactOpts bind.TransactOpts // Transaction auth options to use throughout this session
+type MemeTokenTransactorSession struct {
+	Contract     *MemeTokenTransactor // Generic contract transactor binding to set the session for
+	TransactOpts bind.TransactOpts    // Transaction auth options to use throughout this session
 }
 
-// MemeRaw is an auto generated low-level Go binding around an Ethereum contract.
-type MemeRaw struct {
-	Contract *Meme // Generic contract binding to access the raw methods on
+// MemeTokenRaw is an auto generated low-level Go binding around an Ethereum contract.
+type MemeTokenRaw struct {
+	Contract *MemeToken // Generic contract binding to access the raw methods on
 }
 
-// MemeCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
-type MemeCallerRaw struct {
-	Contract *MemeCaller // Generic read-only contract binding to access the raw methods on
+// MemeTokenCallerRaw is an auto generated low-level read-only Go binding around an Ethereum contract.
+type MemeTokenCallerRaw struct {
+	Contract *MemeTokenCaller // Generic read-only contract binding to access the raw methods on
 }
 
-// MemeTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
-type MemeTransactorRaw struct {
-	Contract *MemeTransactor // Generic write-only contract binding to access the raw methods on
+// MemeTokenTransactorRaw is an auto generated low-level write-only Go binding around an Ethereum contract.
+type MemeTokenTransactorRaw struct {
+	Contract *MemeTokenTransactor // Generic write-only contract binding to access the raw methods on
 }
 
-// NewMeme creates a new instance of Meme, bound to a specific deployed contract.
-func NewMeme(address common.Address, backend bind.ContractBackend) (*Meme, error) {
-	contract, err := bindMeme(address, backend, backend, backend)
+// NewMemeToken creates a new instance of MemeToken, bound to a specific deployed contract.
+func NewMemeToken(address common.Address, backend bind.ContractBackend) (*MemeToken, error) {
+	contract, err := bindMemeToken(address, backend, backend, backend)
 	if err != nil {
 		return nil, err
 	}
-	return &Meme{MemeCaller: MemeCaller{contract: contract}, MemeTransactor: MemeTransactor{contract: contract}, MemeFilterer: MemeFilterer{contract: contract}}, nil
+	return &MemeToken{MemeTokenCaller: MemeTokenCaller{contract: contract}, MemeTokenTransactor: MemeTokenTransactor{contract: contract}, MemeTokenFilterer: MemeTokenFilterer{contract: contract}}, nil
 }
 
-// NewMemeCaller creates a new read-only instance of Meme, bound to a specific deployed contract.
-func NewMemeCaller(address common.Address, caller bind.ContractCaller) (*MemeCaller, error) {
-	contract, err := bindMeme(address, caller, nil, nil)
+// NewMemeTokenCaller creates a new read-only instance of MemeToken, bound to a specific deployed contract.
+func NewMemeTokenCaller(address common.Address, caller bind.ContractCaller) (*MemeTokenCaller, error) {
+	contract, err := bindMemeToken(address, caller, nil, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &MemeCaller{contract: contract}, nil
+	return &MemeTokenCaller{contract: contract}, nil
 }
 
-// NewMemeTransactor creates a new write-only instance of Meme, bound to a specific deployed contract.
-func NewMemeTransactor(address common.Address, transactor bind.ContractTransactor) (*MemeTransactor, error) {
-	contract, err := bindMeme(address, nil, transactor, nil)
+// NewMemeTokenTransactor creates a new write-only instance of MemeToken, bound to a specific deployed contract.
+func NewMemeTokenTransactor(address common.Address, transactor bind.ContractTransactor) (*MemeTokenTransactor, error) {
+	contract, err := bindMemeToken(address, nil, transactor, nil)
 	if err != nil {
 		return nil, err
 	}
-	return &MemeTransactor{contract: contract}, nil
+	return &MemeTokenTransactor{contract: contract}, nil
 }
 
-// NewMemeFilterer creates a new log filterer instance of Meme, bound to a specific deployed contract.
-func NewMemeFilterer(address common.Address, filterer bind.ContractFilterer) (*MemeFilterer, error) {
-	contract, err := bindMeme(address, nil, nil, filterer)
+// NewMemeTokenFilterer creates a new log filterer instance of MemeToken, bound to a specific deployed contract.
+func NewMemeTokenFilterer(address common.Address, filterer bind.ContractFilterer) (*MemeTokenFilterer, error) {
+	contract, err := bindMemeToken(address, nil, nil, filterer)
 	if err != nil {
 		return nil, err
 	}
-	return &MemeFilterer{contract: contract}, nil
+	return &MemeTokenFilterer{contract: contract}, nil
 }
 
-// bindMeme binds a generic wrapper to an already deployed contract.
-func bindMeme(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
-	parsed, err := MemeMetaData.GetAbi()
+// bindMemeToken binds a generic wrapper to an already deployed contract.
+func bindMemeToken(address common.Address, caller bind.ContractCaller, transactor bind.ContractTransactor, filterer bind.ContractFilterer) (*bind.BoundContract, error) {
+	parsed, err := MemeTokenMetaData.GetAbi()
 	if err != nil {
 		return nil, err
 	}
@@ -146,46 +146,46 @@ func bindMeme(address common.Address, caller bind.ContractCaller, transactor bin
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Meme *MemeRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Meme.Contract.MemeCaller.contract.Call(opts, result, method, params...)
+func (_MemeToken *MemeTokenRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _MemeToken.Contract.MemeTokenCaller.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Meme *MemeRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Meme.Contract.MemeTransactor.contract.Transfer(opts)
+func (_MemeToken *MemeTokenRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MemeToken.Contract.MemeTokenTransactor.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Meme *MemeRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Meme.Contract.MemeTransactor.contract.Transact(opts, method, params...)
+func (_MemeToken *MemeTokenRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _MemeToken.Contract.MemeTokenTransactor.contract.Transact(opts, method, params...)
 }
 
 // Call invokes the (constant) contract method with params as input values and
 // sets the output to result. The result type might be a single field for simple
 // returns, a slice of interfaces for anonymous returns and a struct for named
 // returns.
-func (_Meme *MemeCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
-	return _Meme.Contract.contract.Call(opts, result, method, params...)
+func (_MemeToken *MemeTokenCallerRaw) Call(opts *bind.CallOpts, result *[]interface{}, method string, params ...interface{}) error {
+	return _MemeToken.Contract.contract.Call(opts, result, method, params...)
 }
 
 // Transfer initiates a plain transaction to move funds to the contract, calling
 // its default method if one is available.
-func (_Meme *MemeTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Meme.Contract.contract.Transfer(opts)
+func (_MemeToken *MemeTokenTransactorRaw) Transfer(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MemeToken.Contract.contract.Transfer(opts)
 }
 
 // Transact invokes the (paid) contract method with params as input values.
-func (_Meme *MemeTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
-	return _Meme.Contract.contract.Transact(opts, method, params...)
+func (_MemeToken *MemeTokenTransactorRaw) Transact(opts *bind.TransactOpts, method string, params ...interface{}) (*types.Transaction, error) {
+	return _MemeToken.Contract.contract.Transact(opts, method, params...)
 }
 
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) view returns(uint256)
-func (_Meme *MemeCaller) Allowance(opts *bind.CallOpts, owner common.Address, spender common.Address) (*big.Int, error) {
+func (_MemeToken *MemeTokenCaller) Allowance(opts *bind.CallOpts, owner common.Address, spender common.Address) (*big.Int, error) {
 	var out []interface{}
-	err := _Meme.contract.Call(opts, &out, "allowance", owner, spender)
+	err := _MemeToken.contract.Call(opts, &out, "allowance", owner, spender)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -200,23 +200,23 @@ func (_Meme *MemeCaller) Allowance(opts *bind.CallOpts, owner common.Address, sp
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) view returns(uint256)
-func (_Meme *MemeSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
-	return _Meme.Contract.Allowance(&_Meme.CallOpts, owner, spender)
+func (_MemeToken *MemeTokenSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
+	return _MemeToken.Contract.Allowance(&_MemeToken.CallOpts, owner, spender)
 }
 
 // Allowance is a free data retrieval call binding the contract method 0xdd62ed3e.
 //
 // Solidity: function allowance(address owner, address spender) view returns(uint256)
-func (_Meme *MemeCallerSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
-	return _Meme.Contract.Allowance(&_Meme.CallOpts, owner, spender)
+func (_MemeToken *MemeTokenCallerSession) Allowance(owner common.Address, spender common.Address) (*big.Int, error) {
+	return _MemeToken.Contract.Allowance(&_MemeToken.CallOpts, owner, spender)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address account) view returns(uint256)
-func (_Meme *MemeCaller) BalanceOf(opts *bind.CallOpts, account common.Address) (*big.Int, error) {
+func (_MemeToken *MemeTokenCaller) BalanceOf(opts *bind.CallOpts, account common.Address) (*big.Int, error) {
 	var out []interface{}
-	err := _Meme.contract.Call(opts, &out, "balanceOf", account)
+	err := _MemeToken.contract.Call(opts, &out, "balanceOf", account)
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -231,23 +231,23 @@ func (_Meme *MemeCaller) BalanceOf(opts *bind.CallOpts, account common.Address) 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address account) view returns(uint256)
-func (_Meme *MemeSession) BalanceOf(account common.Address) (*big.Int, error) {
-	return _Meme.Contract.BalanceOf(&_Meme.CallOpts, account)
+func (_MemeToken *MemeTokenSession) BalanceOf(account common.Address) (*big.Int, error) {
+	return _MemeToken.Contract.BalanceOf(&_MemeToken.CallOpts, account)
 }
 
 // BalanceOf is a free data retrieval call binding the contract method 0x70a08231.
 //
 // Solidity: function balanceOf(address account) view returns(uint256)
-func (_Meme *MemeCallerSession) BalanceOf(account common.Address) (*big.Int, error) {
-	return _Meme.Contract.BalanceOf(&_Meme.CallOpts, account)
+func (_MemeToken *MemeTokenCallerSession) BalanceOf(account common.Address) (*big.Int, error) {
+	return _MemeToken.Contract.BalanceOf(&_MemeToken.CallOpts, account)
 }
 
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() view returns(uint8)
-func (_Meme *MemeCaller) Decimals(opts *bind.CallOpts) (uint8, error) {
+func (_MemeToken *MemeTokenCaller) Decimals(opts *bind.CallOpts) (uint8, error) {
 	var out []interface{}
-	err := _Meme.contract.Call(opts, &out, "decimals")
+	err := _MemeToken.contract.Call(opts, &out, "decimals")
 
 	if err != nil {
 		return *new(uint8), err
@@ -262,23 +262,23 @@ func (_Meme *MemeCaller) Decimals(opts *bind.CallOpts) (uint8, error) {
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() view returns(uint8)
-func (_Meme *MemeSession) Decimals() (uint8, error) {
-	return _Meme.Contract.Decimals(&_Meme.CallOpts)
+func (_MemeToken *MemeTokenSession) Decimals() (uint8, error) {
+	return _MemeToken.Contract.Decimals(&_MemeToken.CallOpts)
 }
 
 // Decimals is a free data retrieval call binding the contract method 0x313ce567.
 //
 // Solidity: function decimals() view returns(uint8)
-func (_Meme *MemeCallerSession) Decimals() (uint8, error) {
-	return _Meme.Contract.Decimals(&_Meme.CallOpts)
+func (_MemeToken *MemeTokenCallerSession) Decimals() (uint8, error) {
+	return _MemeToken.Contract.Decimals(&_MemeToken.CallOpts)
 }
 
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Meme *MemeCaller) Name(opts *bind.CallOpts) (string, error) {
+func (_MemeToken *MemeTokenCaller) Name(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Meme.contract.Call(opts, &out, "name")
+	err := _MemeToken.contract.Call(opts, &out, "name")
 
 	if err != nil {
 		return *new(string), err
@@ -293,23 +293,23 @@ func (_Meme *MemeCaller) Name(opts *bind.CallOpts) (string, error) {
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Meme *MemeSession) Name() (string, error) {
-	return _Meme.Contract.Name(&_Meme.CallOpts)
+func (_MemeToken *MemeTokenSession) Name() (string, error) {
+	return _MemeToken.Contract.Name(&_MemeToken.CallOpts)
 }
 
 // Name is a free data retrieval call binding the contract method 0x06fdde03.
 //
 // Solidity: function name() view returns(string)
-func (_Meme *MemeCallerSession) Name() (string, error) {
-	return _Meme.Contract.Name(&_Meme.CallOpts)
+func (_MemeToken *MemeTokenCallerSession) Name() (string, error) {
+	return _MemeToken.Contract.Name(&_MemeToken.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Meme *MemeCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
+func (_MemeToken *MemeTokenCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _Meme.contract.Call(opts, &out, "owner")
+	err := _MemeToken.contract.Call(opts, &out, "owner")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -324,23 +324,23 @@ func (_Meme *MemeCaller) Owner(opts *bind.CallOpts) (common.Address, error) {
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Meme *MemeSession) Owner() (common.Address, error) {
-	return _Meme.Contract.Owner(&_Meme.CallOpts)
+func (_MemeToken *MemeTokenSession) Owner() (common.Address, error) {
+	return _MemeToken.Contract.Owner(&_MemeToken.CallOpts)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
-func (_Meme *MemeCallerSession) Owner() (common.Address, error) {
-	return _Meme.Contract.Owner(&_Meme.CallOpts)
+func (_MemeToken *MemeTokenCallerSession) Owner() (common.Address, error) {
+	return _MemeToken.Contract.Owner(&_MemeToken.CallOpts)
 }
 
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Meme *MemeCaller) Symbol(opts *bind.CallOpts) (string, error) {
+func (_MemeToken *MemeTokenCaller) Symbol(opts *bind.CallOpts) (string, error) {
 	var out []interface{}
-	err := _Meme.contract.Call(opts, &out, "symbol")
+	err := _MemeToken.contract.Call(opts, &out, "symbol")
 
 	if err != nil {
 		return *new(string), err
@@ -355,23 +355,23 @@ func (_Meme *MemeCaller) Symbol(opts *bind.CallOpts) (string, error) {
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Meme *MemeSession) Symbol() (string, error) {
-	return _Meme.Contract.Symbol(&_Meme.CallOpts)
+func (_MemeToken *MemeTokenSession) Symbol() (string, error) {
+	return _MemeToken.Contract.Symbol(&_MemeToken.CallOpts)
 }
 
 // Symbol is a free data retrieval call binding the contract method 0x95d89b41.
 //
 // Solidity: function symbol() view returns(string)
-func (_Meme *MemeCallerSession) Symbol() (string, error) {
-	return _Meme.Contract.Symbol(&_Meme.CallOpts)
+func (_MemeToken *MemeTokenCallerSession) Symbol() (string, error) {
+	return _MemeToken.Contract.Symbol(&_MemeToken.CallOpts)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Meme *MemeCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
+func (_MemeToken *MemeTokenCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
 	var out []interface{}
-	err := _Meme.contract.Call(opts, &out, "totalSupply")
+	err := _MemeToken.contract.Call(opts, &out, "totalSupply")
 
 	if err != nil {
 		return *new(*big.Int), err
@@ -386,167 +386,167 @@ func (_Meme *MemeCaller) TotalSupply(opts *bind.CallOpts) (*big.Int, error) {
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Meme *MemeSession) TotalSupply() (*big.Int, error) {
-	return _Meme.Contract.TotalSupply(&_Meme.CallOpts)
+func (_MemeToken *MemeTokenSession) TotalSupply() (*big.Int, error) {
+	return _MemeToken.Contract.TotalSupply(&_MemeToken.CallOpts)
 }
 
 // TotalSupply is a free data retrieval call binding the contract method 0x18160ddd.
 //
 // Solidity: function totalSupply() view returns(uint256)
-func (_Meme *MemeCallerSession) TotalSupply() (*big.Int, error) {
-	return _Meme.Contract.TotalSupply(&_Meme.CallOpts)
+func (_MemeToken *MemeTokenCallerSession) TotalSupply() (*big.Int, error) {
+	return _MemeToken.Contract.TotalSupply(&_MemeToken.CallOpts)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 value) returns(bool)
-func (_Meme *MemeTransactor) Approve(opts *bind.TransactOpts, spender common.Address, value *big.Int) (*types.Transaction, error) {
-	return _Meme.contract.Transact(opts, "approve", spender, value)
+func (_MemeToken *MemeTokenTransactor) Approve(opts *bind.TransactOpts, spender common.Address, value *big.Int) (*types.Transaction, error) {
+	return _MemeToken.contract.Transact(opts, "approve", spender, value)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 value) returns(bool)
-func (_Meme *MemeSession) Approve(spender common.Address, value *big.Int) (*types.Transaction, error) {
-	return _Meme.Contract.Approve(&_Meme.TransactOpts, spender, value)
+func (_MemeToken *MemeTokenSession) Approve(spender common.Address, value *big.Int) (*types.Transaction, error) {
+	return _MemeToken.Contract.Approve(&_MemeToken.TransactOpts, spender, value)
 }
 
 // Approve is a paid mutator transaction binding the contract method 0x095ea7b3.
 //
 // Solidity: function approve(address spender, uint256 value) returns(bool)
-func (_Meme *MemeTransactorSession) Approve(spender common.Address, value *big.Int) (*types.Transaction, error) {
-	return _Meme.Contract.Approve(&_Meme.TransactOpts, spender, value)
+func (_MemeToken *MemeTokenTransactorSession) Approve(spender common.Address, value *big.Int) (*types.Transaction, error) {
+	return _MemeToken.Contract.Approve(&_MemeToken.TransactOpts, spender, value)
 }
 
 // Burn is a paid mutator transaction binding the contract method 0x9dc29fac.
 //
 // Solidity: function burn(address to, uint256 amount) returns()
-func (_Meme *MemeTransactor) Burn(opts *bind.TransactOpts, to common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Meme.contract.Transact(opts, "burn", to, amount)
+func (_MemeToken *MemeTokenTransactor) Burn(opts *bind.TransactOpts, to common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _MemeToken.contract.Transact(opts, "burn", to, amount)
 }
 
 // Burn is a paid mutator transaction binding the contract method 0x9dc29fac.
 //
 // Solidity: function burn(address to, uint256 amount) returns()
-func (_Meme *MemeSession) Burn(to common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Meme.Contract.Burn(&_Meme.TransactOpts, to, amount)
+func (_MemeToken *MemeTokenSession) Burn(to common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _MemeToken.Contract.Burn(&_MemeToken.TransactOpts, to, amount)
 }
 
 // Burn is a paid mutator transaction binding the contract method 0x9dc29fac.
 //
 // Solidity: function burn(address to, uint256 amount) returns()
-func (_Meme *MemeTransactorSession) Burn(to common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Meme.Contract.Burn(&_Meme.TransactOpts, to, amount)
+func (_MemeToken *MemeTokenTransactorSession) Burn(to common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _MemeToken.Contract.Burn(&_MemeToken.TransactOpts, to, amount)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0x40c10f19.
 //
 // Solidity: function mint(address to, uint256 amount) returns()
-func (_Meme *MemeTransactor) Mint(opts *bind.TransactOpts, to common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Meme.contract.Transact(opts, "mint", to, amount)
+func (_MemeToken *MemeTokenTransactor) Mint(opts *bind.TransactOpts, to common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _MemeToken.contract.Transact(opts, "mint", to, amount)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0x40c10f19.
 //
 // Solidity: function mint(address to, uint256 amount) returns()
-func (_Meme *MemeSession) Mint(to common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Meme.Contract.Mint(&_Meme.TransactOpts, to, amount)
+func (_MemeToken *MemeTokenSession) Mint(to common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _MemeToken.Contract.Mint(&_MemeToken.TransactOpts, to, amount)
 }
 
 // Mint is a paid mutator transaction binding the contract method 0x40c10f19.
 //
 // Solidity: function mint(address to, uint256 amount) returns()
-func (_Meme *MemeTransactorSession) Mint(to common.Address, amount *big.Int) (*types.Transaction, error) {
-	return _Meme.Contract.Mint(&_Meme.TransactOpts, to, amount)
+func (_MemeToken *MemeTokenTransactorSession) Mint(to common.Address, amount *big.Int) (*types.Transaction, error) {
+	return _MemeToken.Contract.Mint(&_MemeToken.TransactOpts, to, amount)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Meme *MemeTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
-	return _Meme.contract.Transact(opts, "renounceOwnership")
+func (_MemeToken *MemeTokenTransactor) RenounceOwnership(opts *bind.TransactOpts) (*types.Transaction, error) {
+	return _MemeToken.contract.Transact(opts, "renounceOwnership")
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Meme *MemeSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Meme.Contract.RenounceOwnership(&_Meme.TransactOpts)
+func (_MemeToken *MemeTokenSession) RenounceOwnership() (*types.Transaction, error) {
+	return _MemeToken.Contract.RenounceOwnership(&_MemeToken.TransactOpts)
 }
 
 // RenounceOwnership is a paid mutator transaction binding the contract method 0x715018a6.
 //
 // Solidity: function renounceOwnership() returns()
-func (_Meme *MemeTransactorSession) RenounceOwnership() (*types.Transaction, error) {
-	return _Meme.Contract.RenounceOwnership(&_Meme.TransactOpts)
+func (_MemeToken *MemeTokenTransactorSession) RenounceOwnership() (*types.Transaction, error) {
+	return _MemeToken.Contract.RenounceOwnership(&_MemeToken.TransactOpts)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address to, uint256 value) returns(bool)
-func (_Meme *MemeTransactor) Transfer(opts *bind.TransactOpts, to common.Address, value *big.Int) (*types.Transaction, error) {
-	return _Meme.contract.Transact(opts, "transfer", to, value)
+func (_MemeToken *MemeTokenTransactor) Transfer(opts *bind.TransactOpts, to common.Address, value *big.Int) (*types.Transaction, error) {
+	return _MemeToken.contract.Transact(opts, "transfer", to, value)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address to, uint256 value) returns(bool)
-func (_Meme *MemeSession) Transfer(to common.Address, value *big.Int) (*types.Transaction, error) {
-	return _Meme.Contract.Transfer(&_Meme.TransactOpts, to, value)
+func (_MemeToken *MemeTokenSession) Transfer(to common.Address, value *big.Int) (*types.Transaction, error) {
+	return _MemeToken.Contract.Transfer(&_MemeToken.TransactOpts, to, value)
 }
 
 // Transfer is a paid mutator transaction binding the contract method 0xa9059cbb.
 //
 // Solidity: function transfer(address to, uint256 value) returns(bool)
-func (_Meme *MemeTransactorSession) Transfer(to common.Address, value *big.Int) (*types.Transaction, error) {
-	return _Meme.Contract.Transfer(&_Meme.TransactOpts, to, value)
+func (_MemeToken *MemeTokenTransactorSession) Transfer(to common.Address, value *big.Int) (*types.Transaction, error) {
+	return _MemeToken.Contract.Transfer(&_MemeToken.TransactOpts, to, value)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address from, address to, uint256 value) returns(bool)
-func (_Meme *MemeTransactor) TransferFrom(opts *bind.TransactOpts, from common.Address, to common.Address, value *big.Int) (*types.Transaction, error) {
-	return _Meme.contract.Transact(opts, "transferFrom", from, to, value)
+func (_MemeToken *MemeTokenTransactor) TransferFrom(opts *bind.TransactOpts, from common.Address, to common.Address, value *big.Int) (*types.Transaction, error) {
+	return _MemeToken.contract.Transact(opts, "transferFrom", from, to, value)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address from, address to, uint256 value) returns(bool)
-func (_Meme *MemeSession) TransferFrom(from common.Address, to common.Address, value *big.Int) (*types.Transaction, error) {
-	return _Meme.Contract.TransferFrom(&_Meme.TransactOpts, from, to, value)
+func (_MemeToken *MemeTokenSession) TransferFrom(from common.Address, to common.Address, value *big.Int) (*types.Transaction, error) {
+	return _MemeToken.Contract.TransferFrom(&_MemeToken.TransactOpts, from, to, value)
 }
 
 // TransferFrom is a paid mutator transaction binding the contract method 0x23b872dd.
 //
 // Solidity: function transferFrom(address from, address to, uint256 value) returns(bool)
-func (_Meme *MemeTransactorSession) TransferFrom(from common.Address, to common.Address, value *big.Int) (*types.Transaction, error) {
-	return _Meme.Contract.TransferFrom(&_Meme.TransactOpts, from, to, value)
+func (_MemeToken *MemeTokenTransactorSession) TransferFrom(from common.Address, to common.Address, value *big.Int) (*types.Transaction, error) {
+	return _MemeToken.Contract.TransferFrom(&_MemeToken.TransactOpts, from, to, value)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Meme *MemeTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
-	return _Meme.contract.Transact(opts, "transferOwnership", newOwner)
+func (_MemeToken *MemeTokenTransactor) TransferOwnership(opts *bind.TransactOpts, newOwner common.Address) (*types.Transaction, error) {
+	return _MemeToken.contract.Transact(opts, "transferOwnership", newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Meme *MemeSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Meme.Contract.TransferOwnership(&_Meme.TransactOpts, newOwner)
+func (_MemeToken *MemeTokenSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _MemeToken.Contract.TransferOwnership(&_MemeToken.TransactOpts, newOwner)
 }
 
 // TransferOwnership is a paid mutator transaction binding the contract method 0xf2fde38b.
 //
 // Solidity: function transferOwnership(address newOwner) returns()
-func (_Meme *MemeTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
-	return _Meme.Contract.TransferOwnership(&_Meme.TransactOpts, newOwner)
+func (_MemeToken *MemeTokenTransactorSession) TransferOwnership(newOwner common.Address) (*types.Transaction, error) {
+	return _MemeToken.Contract.TransferOwnership(&_MemeToken.TransactOpts, newOwner)
 }
 
-// MemeApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the Meme contract.
-type MemeApprovalIterator struct {
-	Event *MemeApproval // Event containing the contract specifics and raw log
+// MemeTokenApprovalIterator is returned from FilterApproval and is used to iterate over the raw logs and unpacked data for Approval events raised by the MemeToken contract.
+type MemeTokenApprovalIterator struct {
+	Event *MemeTokenApproval // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -560,7 +560,7 @@ type MemeApprovalIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MemeApprovalIterator) Next() bool {
+func (it *MemeTokenApprovalIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -569,7 +569,7 @@ func (it *MemeApprovalIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MemeApproval)
+			it.Event = new(MemeTokenApproval)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -584,7 +584,7 @@ func (it *MemeApprovalIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MemeApproval)
+		it.Event = new(MemeTokenApproval)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -600,19 +600,19 @@ func (it *MemeApprovalIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MemeApprovalIterator) Error() error {
+func (it *MemeTokenApprovalIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MemeApprovalIterator) Close() error {
+func (it *MemeTokenApprovalIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MemeApproval represents a Approval event raised by the Meme contract.
-type MemeApproval struct {
+// MemeTokenApproval represents a Approval event raised by the MemeToken contract.
+type MemeTokenApproval struct {
 	Owner   common.Address
 	Spender common.Address
 	Value   *big.Int
@@ -622,7 +622,7 @@ type MemeApproval struct {
 // FilterApproval is a free log retrieval operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 value)
-func (_Meme *MemeFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, spender []common.Address) (*MemeApprovalIterator, error) {
+func (_MemeToken *MemeTokenFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.Address, spender []common.Address) (*MemeTokenApprovalIterator, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -633,17 +633,17 @@ func (_Meme *MemeFilterer) FilterApproval(opts *bind.FilterOpts, owner []common.
 		spenderRule = append(spenderRule, spenderItem)
 	}
 
-	logs, sub, err := _Meme.contract.FilterLogs(opts, "Approval", ownerRule, spenderRule)
+	logs, sub, err := _MemeToken.contract.FilterLogs(opts, "Approval", ownerRule, spenderRule)
 	if err != nil {
 		return nil, err
 	}
-	return &MemeApprovalIterator{contract: _Meme.contract, event: "Approval", logs: logs, sub: sub}, nil
+	return &MemeTokenApprovalIterator{contract: _MemeToken.contract, event: "Approval", logs: logs, sub: sub}, nil
 }
 
 // WatchApproval is a free log subscription operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 value)
-func (_Meme *MemeFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *MemeApproval, owner []common.Address, spender []common.Address) (event.Subscription, error) {
+func (_MemeToken *MemeTokenFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *MemeTokenApproval, owner []common.Address, spender []common.Address) (event.Subscription, error) {
 
 	var ownerRule []interface{}
 	for _, ownerItem := range owner {
@@ -654,7 +654,7 @@ func (_Meme *MemeFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *Meme
 		spenderRule = append(spenderRule, spenderItem)
 	}
 
-	logs, sub, err := _Meme.contract.WatchLogs(opts, "Approval", ownerRule, spenderRule)
+	logs, sub, err := _MemeToken.contract.WatchLogs(opts, "Approval", ownerRule, spenderRule)
 	if err != nil {
 		return nil, err
 	}
@@ -664,8 +664,8 @@ func (_Meme *MemeFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *Meme
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MemeApproval)
-				if err := _Meme.contract.UnpackLog(event, "Approval", log); err != nil {
+				event := new(MemeTokenApproval)
+				if err := _MemeToken.contract.UnpackLog(event, "Approval", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -689,18 +689,18 @@ func (_Meme *MemeFilterer) WatchApproval(opts *bind.WatchOpts, sink chan<- *Meme
 // ParseApproval is a log parse operation binding the contract event 0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925.
 //
 // Solidity: event Approval(address indexed owner, address indexed spender, uint256 value)
-func (_Meme *MemeFilterer) ParseApproval(log types.Log) (*MemeApproval, error) {
-	event := new(MemeApproval)
-	if err := _Meme.contract.UnpackLog(event, "Approval", log); err != nil {
+func (_MemeToken *MemeTokenFilterer) ParseApproval(log types.Log) (*MemeTokenApproval, error) {
+	event := new(MemeTokenApproval)
+	if err := _MemeToken.contract.UnpackLog(event, "Approval", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MemeOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Meme contract.
-type MemeOwnershipTransferredIterator struct {
-	Event *MemeOwnershipTransferred // Event containing the contract specifics and raw log
+// MemeTokenOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the MemeToken contract.
+type MemeTokenOwnershipTransferredIterator struct {
+	Event *MemeTokenOwnershipTransferred // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -714,7 +714,7 @@ type MemeOwnershipTransferredIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MemeOwnershipTransferredIterator) Next() bool {
+func (it *MemeTokenOwnershipTransferredIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -723,7 +723,7 @@ func (it *MemeOwnershipTransferredIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MemeOwnershipTransferred)
+			it.Event = new(MemeTokenOwnershipTransferred)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -738,7 +738,7 @@ func (it *MemeOwnershipTransferredIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MemeOwnershipTransferred)
+		it.Event = new(MemeTokenOwnershipTransferred)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -754,19 +754,19 @@ func (it *MemeOwnershipTransferredIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MemeOwnershipTransferredIterator) Error() error {
+func (it *MemeTokenOwnershipTransferredIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MemeOwnershipTransferredIterator) Close() error {
+func (it *MemeTokenOwnershipTransferredIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MemeOwnershipTransferred represents a OwnershipTransferred event raised by the Meme contract.
-type MemeOwnershipTransferred struct {
+// MemeTokenOwnershipTransferred represents a OwnershipTransferred event raised by the MemeToken contract.
+type MemeTokenOwnershipTransferred struct {
 	PreviousOwner common.Address
 	NewOwner      common.Address
 	Raw           types.Log // Blockchain specific contextual infos
@@ -775,7 +775,7 @@ type MemeOwnershipTransferred struct {
 // FilterOwnershipTransferred is a free log retrieval operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Meme *MemeFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*MemeOwnershipTransferredIterator, error) {
+func (_MemeToken *MemeTokenFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, previousOwner []common.Address, newOwner []common.Address) (*MemeTokenOwnershipTransferredIterator, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -786,17 +786,17 @@ func (_Meme *MemeFilterer) FilterOwnershipTransferred(opts *bind.FilterOpts, pre
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Meme.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _MemeToken.contract.FilterLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
-	return &MemeOwnershipTransferredIterator{contract: _Meme.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
+	return &MemeTokenOwnershipTransferredIterator{contract: _MemeToken.contract, event: "OwnershipTransferred", logs: logs, sub: sub}, nil
 }
 
 // WatchOwnershipTransferred is a free log subscription operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Meme *MemeFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *MemeOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
+func (_MemeToken *MemeTokenFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink chan<- *MemeTokenOwnershipTransferred, previousOwner []common.Address, newOwner []common.Address) (event.Subscription, error) {
 
 	var previousOwnerRule []interface{}
 	for _, previousOwnerItem := range previousOwner {
@@ -807,7 +807,7 @@ func (_Meme *MemeFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink 
 		newOwnerRule = append(newOwnerRule, newOwnerItem)
 	}
 
-	logs, sub, err := _Meme.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
+	logs, sub, err := _MemeToken.contract.WatchLogs(opts, "OwnershipTransferred", previousOwnerRule, newOwnerRule)
 	if err != nil {
 		return nil, err
 	}
@@ -817,8 +817,8 @@ func (_Meme *MemeFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink 
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MemeOwnershipTransferred)
-				if err := _Meme.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+				event := new(MemeTokenOwnershipTransferred)
+				if err := _MemeToken.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -842,18 +842,18 @@ func (_Meme *MemeFilterer) WatchOwnershipTransferred(opts *bind.WatchOpts, sink 
 // ParseOwnershipTransferred is a log parse operation binding the contract event 0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0.
 //
 // Solidity: event OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
-func (_Meme *MemeFilterer) ParseOwnershipTransferred(log types.Log) (*MemeOwnershipTransferred, error) {
-	event := new(MemeOwnershipTransferred)
-	if err := _Meme.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
+func (_MemeToken *MemeTokenFilterer) ParseOwnershipTransferred(log types.Log) (*MemeTokenOwnershipTransferred, error) {
+	event := new(MemeTokenOwnershipTransferred)
+	if err := _MemeToken.contract.UnpackLog(event, "OwnershipTransferred", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log
 	return event, nil
 }
 
-// MemeTransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the Meme contract.
-type MemeTransferIterator struct {
-	Event *MemeTransfer // Event containing the contract specifics and raw log
+// MemeTokenTransferIterator is returned from FilterTransfer and is used to iterate over the raw logs and unpacked data for Transfer events raised by the MemeToken contract.
+type MemeTokenTransferIterator struct {
+	Event *MemeTokenTransfer // Event containing the contract specifics and raw log
 
 	contract *bind.BoundContract // Generic contract to use for unpacking event data
 	event    string              // Event name to use for unpacking event data
@@ -867,7 +867,7 @@ type MemeTransferIterator struct {
 // Next advances the iterator to the subsequent event, returning whether there
 // are any more events found. In case of a retrieval or parsing error, false is
 // returned and Error() can be queried for the exact failure.
-func (it *MemeTransferIterator) Next() bool {
+func (it *MemeTokenTransferIterator) Next() bool {
 	// If the iterator failed, stop iterating
 	if it.fail != nil {
 		return false
@@ -876,7 +876,7 @@ func (it *MemeTransferIterator) Next() bool {
 	if it.done {
 		select {
 		case log := <-it.logs:
-			it.Event = new(MemeTransfer)
+			it.Event = new(MemeTokenTransfer)
 			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 				it.fail = err
 				return false
@@ -891,7 +891,7 @@ func (it *MemeTransferIterator) Next() bool {
 	// Iterator still in progress, wait for either a data or an error event
 	select {
 	case log := <-it.logs:
-		it.Event = new(MemeTransfer)
+		it.Event = new(MemeTokenTransfer)
 		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
 			it.fail = err
 			return false
@@ -907,19 +907,19 @@ func (it *MemeTransferIterator) Next() bool {
 }
 
 // Error returns any retrieval or parsing error occurred during filtering.
-func (it *MemeTransferIterator) Error() error {
+func (it *MemeTokenTransferIterator) Error() error {
 	return it.fail
 }
 
 // Close terminates the iteration process, releasing any pending underlying
 // resources.
-func (it *MemeTransferIterator) Close() error {
+func (it *MemeTokenTransferIterator) Close() error {
 	it.sub.Unsubscribe()
 	return nil
 }
 
-// MemeTransfer represents a Transfer event raised by the Meme contract.
-type MemeTransfer struct {
+// MemeTokenTransfer represents a Transfer event raised by the MemeToken contract.
+type MemeTokenTransfer struct {
 	From  common.Address
 	To    common.Address
 	Value *big.Int
@@ -929,7 +929,7 @@ type MemeTransfer struct {
 // FilterTransfer is a free log retrieval operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 value)
-func (_Meme *MemeFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address) (*MemeTransferIterator, error) {
+func (_MemeToken *MemeTokenFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.Address, to []common.Address) (*MemeTokenTransferIterator, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -940,17 +940,17 @@ func (_Meme *MemeFilterer) FilterTransfer(opts *bind.FilterOpts, from []common.A
 		toRule = append(toRule, toItem)
 	}
 
-	logs, sub, err := _Meme.contract.FilterLogs(opts, "Transfer", fromRule, toRule)
+	logs, sub, err := _MemeToken.contract.FilterLogs(opts, "Transfer", fromRule, toRule)
 	if err != nil {
 		return nil, err
 	}
-	return &MemeTransferIterator{contract: _Meme.contract, event: "Transfer", logs: logs, sub: sub}, nil
+	return &MemeTokenTransferIterator{contract: _MemeToken.contract, event: "Transfer", logs: logs, sub: sub}, nil
 }
 
 // WatchTransfer is a free log subscription operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 value)
-func (_Meme *MemeFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *MemeTransfer, from []common.Address, to []common.Address) (event.Subscription, error) {
+func (_MemeToken *MemeTokenFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *MemeTokenTransfer, from []common.Address, to []common.Address) (event.Subscription, error) {
 
 	var fromRule []interface{}
 	for _, fromItem := range from {
@@ -961,7 +961,7 @@ func (_Meme *MemeFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *Meme
 		toRule = append(toRule, toItem)
 	}
 
-	logs, sub, err := _Meme.contract.WatchLogs(opts, "Transfer", fromRule, toRule)
+	logs, sub, err := _MemeToken.contract.WatchLogs(opts, "Transfer", fromRule, toRule)
 	if err != nil {
 		return nil, err
 	}
@@ -971,8 +971,8 @@ func (_Meme *MemeFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *Meme
 			select {
 			case log := <-logs:
 				// New log arrived, parse the event and forward to the user
-				event := new(MemeTransfer)
-				if err := _Meme.contract.UnpackLog(event, "Transfer", log); err != nil {
+				event := new(MemeTokenTransfer)
+				if err := _MemeToken.contract.UnpackLog(event, "Transfer", log); err != nil {
 					return err
 				}
 				event.Raw = log
@@ -996,9 +996,9 @@ func (_Meme *MemeFilterer) WatchTransfer(opts *bind.WatchOpts, sink chan<- *Meme
 // ParseTransfer is a log parse operation binding the contract event 0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef.
 //
 // Solidity: event Transfer(address indexed from, address indexed to, uint256 value)
-func (_Meme *MemeFilterer) ParseTransfer(log types.Log) (*MemeTransfer, error) {
-	event := new(MemeTransfer)
-	if err := _Meme.contract.UnpackLog(event, "Transfer", log); err != nil {
+func (_MemeToken *MemeTokenFilterer) ParseTransfer(log types.Log) (*MemeTokenTransfer, error) {
+	event := new(MemeTokenTransfer)
+	if err := _MemeToken.contract.UnpackLog(event, "Transfer", log); err != nil {
 		return nil, err
 	}
 	event.Raw = log

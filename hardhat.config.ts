@@ -15,6 +15,11 @@ const config: HardhatUserConfig = {
     },
   },
   networks: {
+    hardhat: {
+      accounts: {
+        accountsBalance: "10000000000000000000000000000" // 1000000 ETH
+      }
+    },
     abCoreTestnet: {
       hardfork: "berlin",
       url: `https://rpc.core.testnet.ab.org`,

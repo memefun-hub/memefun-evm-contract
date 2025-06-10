@@ -26,6 +26,8 @@ contract MemeFactory is
     uint256 public K;
     uint256 public x;
     uint256 public y;
+    mapping(address => uint256) public tokenX; // x value for each token
+    mapping(address => uint256) public tokenY; // y value for each token
 
     uint256 public fundingGoal;
     mapping(address => TokenState) public tokens;
@@ -82,7 +84,9 @@ contract MemeFactory is
     function initialize(
         uint256 _x,
         uint256 _y,
-        uint256 _fundingGoal
+        uint256 _fundingGoal,
+        uint256 _createFee,
+        uint256 _feePercent
     ) public initializer {
         __UUPSUpgradeable_init();
         __Ownable_init(msg.sender);
@@ -91,8 +95,9 @@ contract MemeFactory is
         fundingGoal = _fundingGoal;
         x = _x;
         y = _y;
-        K = (x * y) / 1 ether;
-        createFee = 1000 ether;
+        K = (_x * _y) / 1 ether;
+        createFee = _createFee;
+        feePercent = _feePercent;
     }
 
     function _authorizeUpgrade(
@@ -124,6 +129,8 @@ contract MemeFactory is
         MemeToken token = new MemeToken(name, symbol);
         address tokenAddress = address(token);
         tokens[tokenAddress] = TokenState.FUNDING;
+        tokenX[tokenAddress] = x;
+        tokenY[tokenAddress] = y;
         emit TokenCreated(
             tokenAddress,
             msg.sender,
@@ -155,47 +162,53 @@ contract MemeFactory is
         );
 
         // calculate fee
-        uint256 valueToBuy = msg.value; //10000
+        uint256 valueToBuy = msg.value;
         uint256 valueToReturn;
         uint256 tokenCollateral = collateral[tokenAddress];
+        uint256 _fee;
 
         uint256 remainingEthNeeded = fundingGoal - tokenCollateral;
-        uint256 contributionWithoutFee = (valueToBuy * FEE_DENOMINATOR) /
-            (FEE_DENOMINATOR + feePercent);
+        uint256 contributionWithoutFee = valueToBuy -
+            calculateFee(valueToBuy, feePercent);
         if (contributionWithoutFee > remainingEthNeeded) {
             contributionWithoutFee = remainingEthNeeded;
+            _fee = calculateFee(contributionWithoutFee, feePercent);
+            uint256 totalCharged = contributionWithoutFee + _fee;
+            if (valueToBuy > totalCharged) {
+                valueToReturn = valueToBuy - totalCharged;
+            } else {
+                valueToReturn = 0;
+                _fee = valueToBuy - remainingEthNeeded;
+            }
+        } else {
+            _fee = calculateFee(valueToBuy, feePercent);
+            valueToReturn = 0;
         }
-        uint256 _fee = calculateFee(contributionWithoutFee, feePercent);
-        uint256 totalCharged = contributionWithoutFee + _fee;
-        valueToReturn = valueToBuy > totalCharged
-            ? valueToBuy - totalCharged
-            : 0;
         fee += _fee;
+
         MemeToken token = MemeToken(tokenAddress);
         uint256 amount = calculateTokensReceived(
             K,
-            x,
-            y,
+            tokenX[tokenAddress],
+            tokenY[tokenAddress],
             contributionWithoutFee
         );
 
-        // uint256 availableSupply = FUNDING_SUPPLY - token.totalSupply();
-        // require(amount <= availableSupply, "Token supply not enough");
         tokenCollateral += contributionWithoutFee;
         token.mint(msg.sender, amount);
-        // update x and y
-        y = y - amount;
-        x = x + contributionWithoutFee;
+        // update token-specific x and y
+        tokenY[tokenAddress] = tokenY[tokenAddress] - amount;
+        tokenX[tokenAddress] = tokenX[tokenAddress] + contributionWithoutFee;
 
         // when reached FUNDING_GOAL
-        if (collateral[tokenAddress] >= fundingGoal) {
+        if (tokenCollateral >= fundingGoal) {
             // token.mint(address(this), INITIAL_SUPPLY);
             tokens[tokenAddress] = TokenState.WAIT_TRADING;
         }
         collateral[tokenAddress] = tokenCollateral;
         // return left
         if (valueToReturn > 0) {
-            (bool success, ) = msg.sender.call{value: msg.value - valueToBuy}(
+            (bool success, ) = msg.sender.call{value: valueToReturn}(
                 new bytes(0)
             );
             require(success, "ETH send failed");
@@ -203,8 +216,8 @@ contract MemeFactory is
         emit TokenBuy(
             tokenAddress,
             block.timestamp,
-            valueToReturn,
-            msg.value,
+            amount,
+            contributionWithoutFee,
             _fee
         );
     }
@@ -216,21 +229,36 @@ contract MemeFactory is
         );
         require(amount > 0, "Amount should be greater than zero");
         MemeToken token = MemeToken(tokenAddress);
-        uint256 receivedETH = calculateFundsReceived(K, x, y, amount);
+        require(
+            token.balanceOf(msg.sender) >= amount,
+            "Insufficient token balance"
+        );
+
+        uint256 receivedETH = calculateFundsReceived(
+            K,
+            tokenX[tokenAddress],
+            tokenY[tokenAddress],
+            amount
+        );
         // calculate fee
         uint256 _fee = calculateFee(receivedETH, feePercent);
-        receivedETH -= _fee;
+        uint256 receivedETHWithoutFee = receivedETH - _fee;
         fee += _fee;
         token.burn(msg.sender, amount);
         collateral[tokenAddress] -= receivedETH;
+        // Update token-specific x and y
+        tokenY[tokenAddress] = tokenY[tokenAddress] + amount;
+        tokenX[tokenAddress] = tokenX[tokenAddress] - receivedETH;
         // send ether
-        (bool success, ) = msg.sender.call{value: receivedETH}(new bytes(0));
+        (bool success, ) = msg.sender.call{value: receivedETHWithoutFee}(
+            new bytes(0)
+        );
         require(success, "ETH send failed");
         emit TokenSell(
             tokenAddress,
             block.timestamp,
             amount,
-            receivedETH,
+            receivedETHWithoutFee,
             _fee
         );
     }

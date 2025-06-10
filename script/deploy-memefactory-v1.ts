@@ -6,6 +6,8 @@ async function main() {
     ethers.parseEther("30000"),
     ethers.parseEther("1073000191"),
     ethers.parseEther("1000000"),
+    ethers.parseEther("1000"),
+    100
   ], {
     initializer: 'initialize',
     kind: 'uups'

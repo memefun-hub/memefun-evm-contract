@@ -30,6 +30,16 @@
       "address": "0xc385e5419640a04EaC901E08EAc3e3100AC656ef",
       "txHash": "0x6cb643e03bb1f2c22afcb6c064884ae92739412fa8ba7469b9c66fe85fe6bb62",
       "kind": "uups"
+    },
+    {
+      "address": "0x5ccD8e825632DA5589A3F12467969681B2228647",
+      "txHash": "0x257145af6f6a5f583421620f1ac0772d7a594990bcb9d38a1670bc84f36c549a",
+      "kind": "uups"
+    },
+    {
+      "address": "0x9B1DdF90C0e6412c61318ddf609B86B28F21B45A",
+      "txHash": "0x2b9715aca3debcb5a0607b1b3ed2d1007cfeb26ad93c160e3cbfb217a047cc16",
+      "kind": "uups"
     }
   ],
   "impls": {
@@ -1280,6 +1290,436 @@
             "type": "t_uint256",
             "contract": "MemeFactory",
             "src": "contracts/MemeFactory.sol:35"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)73_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)13_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(ReentrancyGuardStorage)226_storage": {
+            "label": "struct ReentrancyGuardUpgradeable.ReentrancyGuardStorage",
+            "members": [
+              {
+                "label": "_status",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_enum(TokenState)2577": {
+            "label": "enum MemeFactory.TokenState",
+            "members": [
+              "NOT_CREATED",
+              "FUNDING",
+              "WAIT_TRADING",
+              "TRADING"
+            ],
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_enum(TokenState)2577)": {
+            "label": "mapping(address => enum MemeFactory.TokenState)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.ReentrancyGuard": [
+            {
+              "contract": "ReentrancyGuardUpgradeable",
+              "label": "_status",
+              "type": "t_uint256",
+              "src": "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol:43",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    },
+    "9e4134f510042896257a839b917d9f46e25e991dbab2dd9f04e00f3ff881efb6": {
+      "address": "0x4bf74A4FCC6084CdDC6760602515f133475b1B9F",
+      "txHash": "0xfec9ccecdca3662fc9e6f4803b9a992a98ebb204579d64faf1c50d22f93de69d",
+      "layout": {
+        "solcVersion": "0.8.28",
+        "storage": [
+          {
+            "label": "K",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:26"
+          },
+          {
+            "label": "x",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:27"
+          },
+          {
+            "label": "y",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:28"
+          },
+          {
+            "label": "tokenX",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:29"
+          },
+          {
+            "label": "tokenY",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:30"
+          },
+          {
+            "label": "fundingGoal",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:32"
+          },
+          {
+            "label": "tokens",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_address,t_enum(TokenState)2577)",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:33"
+          },
+          {
+            "label": "collateral",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:34"
+          },
+          {
+            "label": "feePercent",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:35"
+          },
+          {
+            "label": "fee",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:36"
+          },
+          {
+            "label": "createFee",
+            "offset": 0,
+            "slot": "10",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:37"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)73_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)13_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(ReentrancyGuardStorage)226_storage": {
+            "label": "struct ReentrancyGuardUpgradeable.ReentrancyGuardStorage",
+            "members": [
+              {
+                "label": "_status",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_enum(TokenState)2577": {
+            "label": "enum MemeFactory.TokenState",
+            "members": [
+              "NOT_CREATED",
+              "FUNDING",
+              "WAIT_TRADING",
+              "TRADING"
+            ],
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_enum(TokenState)2577)": {
+            "label": "mapping(address => enum MemeFactory.TokenState)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.ReentrancyGuard": [
+            {
+              "contract": "ReentrancyGuardUpgradeable",
+              "label": "_status",
+              "type": "t_uint256",
+              "src": "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol:43",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    },
+    "049dff6bafd15842da35a5f48b47fa04dcd20b1f0d411182f9d70c0309b95b2e": {
+      "address": "0x542dd4869185eB2B576D164E45CBaf63B8261727",
+      "txHash": "0x15447ea5bc1407020805cc60d704ce3daf66e73a92ee31dddcab7be461aebd15",
+      "layout": {
+        "solcVersion": "0.8.28",
+        "storage": [
+          {
+            "label": "K",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:26"
+          },
+          {
+            "label": "x",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:27"
+          },
+          {
+            "label": "y",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:28"
+          },
+          {
+            "label": "tokenX",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:29"
+          },
+          {
+            "label": "tokenY",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:30"
+          },
+          {
+            "label": "fundingGoal",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:32"
+          },
+          {
+            "label": "tokens",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_address,t_enum(TokenState)2577)",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:33"
+          },
+          {
+            "label": "collateral",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:34"
+          },
+          {
+            "label": "feePercent",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:35"
+          },
+          {
+            "label": "fee",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:36"
+          },
+          {
+            "label": "createFee",
+            "offset": 0,
+            "slot": "10",
+            "type": "t_uint256",
+            "contract": "MemeFactory",
+            "src": "contracts/MemeFactory.sol:37"
           }
         ],
         "types": {

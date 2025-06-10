@@ -555,6 +555,16 @@
         "internalType": "uint256",
         "name": "_fundingGoal",
         "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_createFee",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_feePercent",
+        "type": "uint256"
       }
     ],
     "name": "initialize",
@@ -650,6 +660,44 @@
     "name": "setFundingGoal",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "tokenX",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "tokenY",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
