@@ -36,6 +36,7 @@ const config: HardhatUserConfig = {
   etherscan: {
     apiKey: {
       abCoreTestnet: "empty",
+      abCoreMainnet: "empty",
     },
     customChains: [
       {
@@ -44,6 +45,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://explorer.core.testnet.ab.org/api",
           browserURL: "https://explorer.core.testnet.ab.org",
+        },
+      },
+      {
+        network: "abCoreMainnet",
+        chainId: 36888,
+        urls: {
+          apiURL: "https://explorer.core.ab.org/api",
+          browserURL: "https://explorer.core.ab.org",
         },
       },
     ],

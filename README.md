@@ -13,5 +13,6 @@ npx hardhat ignition deploy ./ignition/modules/Lock.ts
 npx hardhat verify --network abCoreTestnet <address> [...args]
 
 
-0x9B1DdF90C0e6412c61318ddf609B86B28F21B45A
+test: 0x9B1DdF90C0e6412c61318ddf609B86B28F21B45A
+mainnet: https://explorer.core.ab.org/address/0xEb61fa9DE83c5ACfde797B3C5c4E704893C00Fb5
 ```
